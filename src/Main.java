@@ -1,43 +1,19 @@
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[][] vasya = new int[n][n];
-        int[][] petya = new int[n][n];
-        int counter = 0;
-        for(int i=0;i<n;i++) {
-            for(int j=0;j<n;j++) {
-                counter++;
-                vasya[i][j] = counter;
-                petya[j][i] = counter;
-            }
+        int fullsum = 0;
+        int actualsum = 0;
+        for(int i=1;i<=n;i++) {
+            fullsum += i; // fullsum = fullsum + i
         }
-        for(int i=0;i<n;i++) {
-            for (int j = 0; j < n; j++) {
-                if(vasya[i][j] == petya[i][j]) {
-                    System.out.print(vasya[i][j] + " ");
-                }
-            }
+        for(int i=0;i<n-1;i++) {
+            int buf = scanner.nextInt();
+            actualsum += buf;
         }
-        /*
-        System.out.println();
-        for(int i=0;i<n;i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(vasya[i][j] + " ");
-            }
-            System.out.println();
-        }
-        for(int i=0;i<n;i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(petya[i][j] + " ");
-            }
-            System.out.println();
-        }
-           */
-
-
+        System.out.println(fullsum - actualsum);
     }
 }
